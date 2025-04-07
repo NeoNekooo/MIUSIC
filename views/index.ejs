@@ -1,38 +1,51 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOOSIC - YouTube to MP3 Converter</title>
+    <meta name="description" content="Convert YouTube videos to high quality MP3 files instantly">
+    <title>YT2MP3 Converter - Convert YouTube to Audio</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <h1 class="title">MIUSIC</h1>
+            <h1>🎵 MIUSIC</h1>
             <p class="subtitle">Download lagu favoritmu dengan mudah</p>
         </header>
 
-        <main class="main-content">
+        <main>
             <form id="converterForm" class="converter-form">
                 <div class="input-group">
-                    <label class="input-label">YouTube URL</label>
+                    <label for="youtubeUrl" class="sr-only">YouTube URL</label>
                     <input
                         type="url"
+                        id="youtubeUrl"
                         name="url"
-                        class="url-input"
-                        placeholder="Paste YouTube link Disini..."
+                        placeholder="Paste YouTube link here..."
                         required
+                        autocomplete="off"
+                        pattern="^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+"
                     >
-                    <button type="submit" class="convert-btn">
-                        <span class="btn-text">Convert</span>
-                        <div class="btn-loader hidden"></div>
+                    <button type="submit" aria-label="Convert to MP3">
+                        <span class="button-text">🚀 Convert</span>
+                        <span class="button-loader hidden"></span>
                     </button>
                 </div>
             </form>
+
+            <div class="status-container">
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p class="loading-text">Converting...</p>
+                </div>
+                
+                <div id="statusMessage" class="status-message hidden" role="alert"></div>
+            </div>
         </main>
     </div>
 
-    <script src="/js/script.js"></script>
+    <script src="/js/script.js" defer></script>
 </body>
 </html>
