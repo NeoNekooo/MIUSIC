@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOOSIC - YouTube to MP3 Converter</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">MIUSIC</h1>
+            <p class="subtitle">Download lagu favoritmu dengan mudah</p>
+        </header>
+
+        <main class="main-content">
+            <form id="converterForm" class="converter-form">
+                <div class="input-group">
+                    <label class="input-label">YouTube URL</label>
+                    <input
+                        type="url"
+                        name="url"
+                        class="url-input"
+                        placeholder="Paste YouTube link Disini..."
+                        required
+                    >
+                    <button type="submit" class="convert-btn">
+                        <span class="btn-text">Convert</span>
+                        <div class="btn-loader hidden"></div>
+                    </button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
