@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('converterForm');
   const loading = document.getElementById('loading');
 
-  // 1) Paste dari clipboard
   pasteBtn.addEventListener('click', async () => {
     try {
       const text = await navigator.clipboard.readText();
@@ -14,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 2) Handle submit form → convert & download
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const url = form.url.value;
@@ -34,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         throw new Error(await response.text());
       }
 
-      // Ambil nama file dari header Content-Disposition
       const contentDisp = response.headers.get('Content-Disposition') || '';
       const filename = decodeURIComponent(
         contentDisp
@@ -42,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
           .replace(/"/g, '')
       );
 
-      // Download blob
       const blob = await response.blob();
       const downloadUrl = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
