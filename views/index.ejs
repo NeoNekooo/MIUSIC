@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Convert YouTube videos to high quality MP3 files instantly">
-    <title>YT2MP3 Converter - Convert YouTube to Audio</title>
+    <title>MIUSIC</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 </head>
@@ -18,27 +18,33 @@
         <main>
             <form id="converterForm" class="converter-form">
                 <div class="input-group">
-                    <label for="youtubeUrl" class="sr-only">YouTube URL</label>
-                    <input
-                        type="url"
-                        id="youtubeUrl"
-                        name="url"
-                        placeholder="Paste YouTube link here..."
-                        required
-                        autocomplete="off"
-                        pattern="^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+"
-                    >
-                    <button type="submit" aria-label="Convert to MP3">
-                        <span class="button-text">🚀 Convert</span>
-                        <span class="button-loader hidden"></span>
-                    </button>
+                  <label for="youtubeUrl" class="sr-only">YouTube URL</label>
+                  <input
+                    type="url"
+                    id="youtubeUrl"
+                    name="url"
+                    placeholder="Paste YouTube link here..."
+                    required
+                    autocomplete="off"
+                    pattern="^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+"
+                  />
+                  <button type="button" id="pasteButton" aria-label="Tempel dari clipboard">
+                    Tempel
+                  </button>
                 </div>
-            </form>
+              
+                <!-- Sekarang tombol Convert di sini, full‑width di bawah input -->
+                <button type="submit" class="convert-button" aria-label="Convert to MP3">
+                  🚀 Convert
+                  <span class="button-loader hidden"></span>
+                </button>
+              </form>
+            
 
             <div class="status-container">
                 <div id="loading" class="loading hidden">
                     <div class="spinner"></div>
-                    <p class="loading-text">Converting...</p>
+                    <p class="loading-text">Tunggu Bentar....</p>
                 </div>
                 
                 <div id="statusMessage" class="status-message hidden" role="alert"></div>
