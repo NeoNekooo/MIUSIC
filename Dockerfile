@@ -1,14 +1,14 @@
-# Gunakan image Node.js berbasis Debian yang bisa install Python
+# Gunakan image Node.js berbasis Debian
 FROM node:20-bullseye
 
-# Install Python 3, ffmpeg, dan dependensi yang diperlukan
+# Install dependensi sistem
 RUN apt-get update && \
     apt-get install -y \
     python3 \
     python3-pip \
-    ffmpeg \  # Diperlukan untuk operasi download video
-    curl && \
-    rm -rf /var/lib/apt/lists/*
+    ffmpeg \      # Diperlukan untuk operasi download video
+    curl && \     # Paket curl ditambahkan di sini
+    rm -rf /var/lib/apt/lists/*  # Perbaikan typo: "apr" -> "apt"
 
 # Install yt-dlp secara global
 RUN pip3 install yt-dlp
